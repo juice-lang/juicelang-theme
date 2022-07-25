@@ -1,0 +1,220 @@
+---
+---
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;700&display=swap');
+@import url('https://rsms.me/inter/inter.css');
+
+// 1. Your custom variables and variable overwrites.
+$global-font-family: "Fira Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$base-code-font-family: "Fira Mono", Consolas, monaco, monospace;
+
+$base-heading-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$navbar-nav-item-font-family: $base-heading-font-family;
+$logo-font-family: $base-heading-font-family;
+
+$inverse-logo-hover-color: rgba(white, .85);
+$logo-font-size: 4rem;
+
+// 2. Import default variables and available mixins.
+@import "uikit/variables-theme";
+@import "uikit/mixins-theme";
+
+// 3. Your custom mixin overwrites.
+@mixin hook-flex-misc() {
+    /* Phone landscape and bigger */
+    @media (min-width: $breakpoint-small) {
+        .uk-flex-row\@s { flex-direction: row; }
+        .uk-flex-row-reverse\@s { flex-direction: row-reverse; }
+        .uk-flex-column\@s { flex-direction: column; }
+        .uk-flex-column-reverse\@s { flex-direction: column-reverse; }
+    }
+
+    /* Tablet landscape and bigger */
+    @media (min-width: $breakpoint-medium) {
+        .uk-flex-row\@m { flex-direction: row; }
+        .uk-flex-row-reverse\@m { flex-direction: row-reverse; }
+        .uk-flex-column\@m { flex-direction: column; }
+        .uk-flex-column-reverse\@m { flex-direction: column-reverse; }
+    }
+
+    /* Desktop and bigger */
+    @media (min-width: $breakpoint-large) {
+        .uk-flex-row\@l { flex-direction: row; }
+        .uk-flex-row-reverse\@l { flex-direction: row-reverse; }
+        .uk-flex-column\@l { flex-direction: column; }
+        .uk-flex-column-reverse\@l { flex-direction: column-reverse; }
+    }
+
+    /* Large screen and bigger */
+    @media (min-width: $breakpoint-xlarge) {
+        .uk-flex-row\@xl { flex-direction: row; }
+        .uk-flex-row-reverse\@xl { flex-direction: row-reverse; }
+        .uk-flex-column\@xl { flex-direction: column; }
+        .uk-flex-column-reverse\@xl { flex-direction: column-reverse; }
+    }
+
+    .uk-flex-break {
+        flex-basis: 100%;
+        height: 0;
+    }
+
+    .uk-flex-column-break {
+        flex-basis: 100%;
+        width: 0;
+    }
+}
+
+
+@mixin hook-logo() {
+    .logo-image {
+        height: 1.5em;
+
+        svg {
+            height: 1.5em;
+            vertical-align: top;
+            width: 1.5em;
+        }
+    }
+}
+
+@mixin hook-inverse-logo() {
+    .logo-image path {
+        fill: $inverse-logo-color;
+    }
+}
+
+@mixin hook-inverse-logo-hover() {
+    .logo-image path {
+        fill: $inverse-logo-hover-color;
+    }
+}
+
+
+@mixin hook-margin-misc() {
+    /* Phone portrait and smaller */
+    @media (max-width: $breakpoint-xsmall-max) {
+        .uk-margin-remove-left\@xs-max { margin-left: 0 !important; }
+        .uk-margin-remove-right\@xs-max { margin-right: 0 !important; }
+    }
+
+    /* Phone landscape and smaller */
+    @media (max-width: $breakpoint-small-max) {
+        .uk-margin-remove-left\@s-max { margin-left: 0 !important; }
+        .uk-margin-remove-right\@s-max { margin-right: 0 !important; }
+    }
+
+    /* Tablet landscape and smaller */
+    @media (max-width: $breakpoint-medium-max) {
+        .uk-margin-remove-left\@m-max { margin-left: 0 !important; }
+        .uk-margin-remove-right\@m-max { margin-right: 0 !important; }
+    }
+
+    /* Desktop and smaller */
+    @media (max-width: $breakpoint-large-max) {
+        .uk-margin-remove-left\@l-max { margin-left: 0 !important; }
+        .uk-margin-remove-right\@l-max { margin-right: 0 !important; }
+    }
+}
+
+
+@mixin hook-text-misc() {
+    /* Phone landscape and bigger */
+    @media (min-width: $breakpoint-small) {
+        .uk-text-small\@s {
+            font-size: $text-small-font-size;
+            line-height: $text-small-line-height;
+            @if(mixin-exists(hook-text-small)) {@include hook-text-small();}
+        }
+
+        .uk-text-large\@s {
+            font-size: $text-large-font-size;
+            line-height: $text-large-line-height;
+            @if(mixin-exists(hook-text-large)) {@include hook-text-large();}
+        }
+    }
+
+    /* Tablet landscape and bigger */
+    @media (min-width: $breakpoint-medium) {
+        .uk-text-small\@m {
+            font-size: $text-small-font-size;
+            line-height: $text-small-line-height;
+            @if(mixin-exists(hook-text-small)) {@include hook-text-small();}
+        }
+
+        .uk-text-large\@m {
+            font-size: $text-large-font-size;
+            line-height: $text-large-line-height;
+            @if(mixin-exists(hook-text-large)) {@include hook-text-large();}
+        }
+    }
+
+    /* Desktop and bigger */
+    @media (min-width: $breakpoint-large) {
+        .uk-text-small\@l {
+            font-size: $text-small-font-size;
+            line-height: $text-small-line-height;
+            @if(mixin-exists(hook-text-small)) {@include hook-text-small();}
+        }
+
+        .uk-text-large\@l {
+            font-size: $text-large-font-size;
+            line-height: $text-large-line-height;
+            @if(mixin-exists(hook-text-large)) {@include hook-text-large();}
+        }
+    }
+
+    /* Large screen and bigger */
+    @media (min-width: $breakpoint-xlarge) {
+        .uk-text-small\@xl {
+            font-size: $text-small-font-size;
+            line-height: $text-small-line-height;
+            @if(mixin-exists(hook-text-small)) {@include hook-text-small();}
+        }
+
+        .uk-text-large\@xl {
+            font-size: $text-large-font-size;
+            line-height: $text-large-line-height;
+            @if(mixin-exists(hook-text-large)) {@include hook-text-large();}
+        }
+    }
+}
+
+// 4. Import UIkit.
+@import "uikit/uikit-theme";
+
+
+.header {
+    background: #df8e15 linear-gradient(to right, #df8e15, #df8e15 50%, #ee5a16 50%, #ee5a16);
+
+    .header-nav {
+        background: #df8e15 linear-gradient(to right, #df8e15, #df8e15 1.5em, #ee5a16);
+    }
+}
+
+.logo {
+    .logo-text {
+        margin-left: .1em;
+
+        .logo-name {
+            transform: skewX(-17deg);
+        }
+    }
+}
+
+.mobile-logo {
+    font-size: 3rem;
+
+    .mobile-logo-text {
+        margin-left: .1em;
+
+        .mobile-logo-name {
+            line-height: 1.2em;
+        }
+    }
+
+    .mobile-logo-subtitle {
+        font-size: .75rem;
+    }
+}

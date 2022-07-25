@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+    <head>
+        <meta charset="utf-8">
+        <title>juice &ndash; {{ page.title }}</title>
+        <meta name="description" content="{{ page.excerpt }}">
+        <meta name="title" content="{{ page.title }}">
+        <meta name="author" content="Josef Zoller">
+        <meta name="generator" content="jekyll">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/icons/apple-touch-icon.png' | relative_url }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/icons/favicon-32x32.png' | relative_url }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/icons/favicon-16x16.png' | relative_url }}">
+        <link rel="manifest" href="{{ '/assets/images/icons/site.webmanifest' | relative_url }}">
+        <link rel="mask-icon" href="{{ '/assets/images/icons/safari-pinned-tab.svg' | relative_url }}" color="#df8e15">
+        <link rel="shortcut icon" href="{{ '/assets/images/icons/favicon.ico' | relative_url }}">
+        <meta name="apple-mobile-web-app-title" content="juicelang">
+        <meta name="application-name" content="juicelang">
+        <meta name="msapplication-TileColor" content="#df8e15">
+        <meta name="msapplication-config" content="{{ '/assets/images/icons/browserconfig.xml' | relative_url }}">
+        <meta name="theme-color" content="#df8e15">
+
+        <link href="{{ '/assets/css/default.css' | relative_url }}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="uk-container uk-container-expand header">
+            <nav class="uk-navbar-container uk-container uk-container-small uk-navbar-transparent uk-light
+                        uk-flex-column uk-flex-row@m header-nav" uk-navbar>
+                <div class="uk-navbar-left">
+                    <a class="uk-navbar-item uk-logo uk-text-italic uk-padding-small uk-padding-remove-left
+                              uk-visible@m logo" href="{{ site.baseurl }}">
+                        <div class="uk-flex">
+                            <div class="logo-image">
+                                {% include logo.html %}
+                            </div>
+                            <div class="logo-text">
+                                <div class="uk-text-italic logo-name">juice</div>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="uk-navbar-item uk-logo uk-padding-small uk-padding-remove-left uk-hidden@m mobile-logo"
+                       href="{{ site.baseurl }}">
+                        <div class="uk-flex">
+                            <div class="logo-image">
+                                {% include logo.html %}
+                            </div>
+                            <div class="uk-flex uk-flex-column mobile-logo-text">
+                                <div class="uk-text-italic mobile-logo-name">juice</div>
+                                <div class="mobile-logo-subtitle">
+                                    The <span class="uk-text-italic uk-text-bold">juicy</span> programming language
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="uk-navbar-right uk-visible@m">
+                    <div class="uk-navbar-item">
+                        <div class="uk-text-large">
+                            The <span class="uk-text-italic uk-text-bold">juicy</span> programming language
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        {{ content }}
+        <div class="uk-container uk-container-small uk-margin-small-top footer">
+            <nav class="uk-navbar-container uk-container uk-container-small uk-navbar-transparent" uk-navbar>
+                <div class="uk-navbar-left">
+                    <div class="uk-navbar-item uk-padding-remove">&copy; {{ 'now' | date: "%Y" }}&nbsp;</div>
+                    <a class="uk-navbar-item uk-padding-remove-left" href="{{ site.baseurl }}">juice-lang</a>
+                </div>
+                <div class="uk-navbar-right">
+                    <ul class="uk-navbar-nav">
+                        <li>
+                            <a href="https://github.com/juice-lang" class="uk-padding-remove-right">
+                                <span class="uk-icon" uk-icon="icon: github"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.1/dist/js/uikit.min.js"
+                integrity="sha256-JTeGCPhARdTbOqTHWpbalyuXTrg+mIe57wO1kLA7mbo="
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.1/dist/js/uikit-icons.min.js"
+                integrity="sha256-9FYHm0nQRLd6ZiLbfgCUP3esO2H74eUc2JpWFr2CUhY="
+                crossorigin="anonymous"></script>
+        <script src="{{ '/assets/js/default.js' | relative_url }}"></script>
+    </body>
+</html>
