@@ -223,6 +223,6 @@ $navbar-gap: 0;
     }
 }
 
-.content :first-child {
+.content > :first-child {
     margin-top: $margin-large-margin;
 }
