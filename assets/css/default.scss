@@ -16,6 +16,7 @@ $logo-font-family: $base-heading-font-family;
 
 $inverse-logo-hover-color: rgba(white, .85);
 $logo-font-size: 4rem;
+$navbar-gap: 0;
 
 // 2. Import default variables and available mixins.
 @import "uikit/variables-theme";
@@ -184,6 +185,8 @@ $logo-font-size: 4rem;
 // 4. Import UIkit.
 @import "uikit/uikit-theme";
 
+@import "syntax-highlighting";
+
 
 .header {
     background: #df8e15 linear-gradient(to right, #df8e15, #df8e15 50%, #ee5a16 50%, #ee5a16);
@@ -191,30 +194,35 @@ $logo-font-size: 4rem;
     .header-nav {
         background: #df8e15 linear-gradient(to right, #df8e15, #df8e15 1.5em, #ee5a16);
     }
-}
 
-.logo {
-    .logo-text {
-        margin-left: .1em;
-
-        .logo-name {
-            transform: skewX(-17deg);
+    .logo {
+        .logo-text {
+            margin-left: .1em;
+    
+            .logo-name {
+                transform: skewX(-17deg);
+            }
+        }
+    }
+    
+    .mobile-logo {
+        font-size: 3rem;
+    
+        .mobile-logo-text {
+            margin-left: .1em;
+    
+            .mobile-logo-name {
+                transform: skewX(-17deg);
+                line-height: 1.2em;
+            }
+        }
+    
+        .mobile-logo-subtitle {
+            font-size: .75rem;
         }
     }
 }
 
-.mobile-logo {
-    font-size: 3rem;
-
-    .mobile-logo-text {
-        margin-left: .1em;
-
-        .mobile-logo-name {
-            line-height: 1.2em;
-        }
-    }
-
-    .mobile-logo-subtitle {
-        font-size: .75rem;
-    }
+.content :first-child {
+    margin-top: $margin-large-margin;
 }

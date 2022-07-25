@@ -30,7 +30,7 @@
                         uk-flex-column uk-flex-row@m header-nav" uk-navbar>
                 <div class="uk-navbar-left">
                     <a class="uk-navbar-item uk-logo uk-text-italic uk-padding-small uk-padding-remove-left
-                              uk-visible@m logo" href="{{ site.baseurl }}">
+                              uk-visible@m logo" href="{{ site.url }}">
                         <div class="uk-flex">
                             <div class="logo-image">
                                 {% include logo.html %}
@@ -41,7 +41,7 @@
                         </div>
                     </a>
                     <a class="uk-navbar-item uk-logo uk-padding-small uk-padding-remove-left uk-hidden@m mobile-logo"
-                       href="{{ site.baseurl }}">
+                       href="{{ site.url }}">
                         <div class="uk-flex">
                             <div class="logo-image">
                                 {% include logo.html %}
@@ -69,7 +69,7 @@
             <nav class="uk-navbar-container uk-container uk-container-small uk-navbar-transparent" uk-navbar>
                 <div class="uk-navbar-left">
                     <div class="uk-navbar-item uk-padding-remove">&copy; {{ 'now' | date: "%Y" }}&nbsp;</div>
-                    <a class="uk-navbar-item uk-padding-remove-left" href="{{ site.baseurl }}">juice-lang</a>
+                    <a class="uk-navbar-item uk-padding-remove-left" href="{{ site.url }}">juice-lang</a>
                 </div>
                 <div class="uk-navbar-right">
                     <ul class="uk-navbar-nav">
