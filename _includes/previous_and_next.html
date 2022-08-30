@@ -1,0 +1,23 @@
+{% if page.nav %}
+    {% assign previousAndNext = page | previous_and_next: site.data.navigation[page.nav] %}
+    {% assign previous = previousAndNext['previous'] %}
+    {% assign next = previousAndNext['next'] %}
+    <div class="uk-container uk-container-small uk-margin-medium-top">
+        <ul class="uk-pagination">
+            {% if previous %}
+                <li>
+                    <a href="{{ previous | url_without_ext }}">
+                        <span class="uk-margin-small-right" uk-pagination-previous></span> Previous
+                    </a>
+                </li>
+            {% endif %}
+            {% if next %}
+                <li class="uk-margin-auto-left">
+                    <a href="{{ next | url_without_ext }}">
+                        Next <span class="uk-margin-small-left" uk-pagination-next></span>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+{% endif %}
