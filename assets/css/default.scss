@@ -70,12 +70,22 @@ $navbar-gap: 0;
 
 @mixin hook-logo() {
     .logo-image {
-        height: 1.5em;
+        height: 1em;
 
         svg {
-            height: 1.5em;
+            height: 1em;
+            width: auto;
             vertical-align: top;
-            width: 1.5em;
+        }
+    }
+
+    @media (min-width: $breakpoint-medium) {
+        .logo-image {
+            height: 1.5em;
+
+            svg {
+                height: 1.5em;
+            }
         }
     }
 }
@@ -188,41 +198,90 @@ $navbar-gap: 0;
 @import "syntax-highlighting";
 
 
+$half-container-small-width: $container-small-max-width / 2;
+
 .header {
-    background: #df8e15 linear-gradient(to right, #df8e15, #df8e15 50%, #ee5a16 50%, #ee5a16);
+    background: #df8e15 linear-gradient(to right, #df8e15, #df8e15 calc(50% - #{$half-container-small-width} + 1.5em), #ee5a16 calc(50% + #{$half-container-small-width}), #ee5a16);
 
-    .header-nav {
-        background: #df8e15 linear-gradient(to right, #df8e15, #df8e15 1.5em, #ee5a16);
+    .header-center {
+        display: flow-root;
+        position: inherit;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
     }
+}
 
-    .logo {
-        .logo-text {
-            margin-left: .1em;
-    
-            .logo-name {
-                transform: skewX(-17deg);
+#offcanvas-toggle {
+    position: absolute;
+    height: 100%;
+    z-index: 1000;
+}
+
+@supports (margin-left: unquote('max(calc(50% - #{$half-container-small-width}), 25px)')) {
+    @media (min-width: $breakpoint-medium) {
+        #offcanvas-toggle + .header-center {
+            .header-nav {
+                margin-left: unquote('max(calc(50% - #{$half-container-small-width}), 25px)');
             }
-        }
-    }
-    
-    .mobile-logo {
-        font-size: 3rem;
-    
-        .mobile-logo-text {
-            margin-left: .1em;
-    
-            .mobile-logo-name {
-                transform: skewX(-17deg);
-                line-height: 1.2em;
-            }
-        }
-    
-        .mobile-logo-subtitle {
-            font-size: .75rem;
         }
     }
 }
 
-.content > :first-child {
-    margin-top: $margin-large-margin;
+$languages: "ebnf", "juice";
+
+.content {
+    & > :first-child {
+        margin-top: $margin-large-margin;
+    }
+
+    .highlighter-rouge {
+        position: relative;
+
+        @each $language in $languages {
+            &.language-#{$language} > .highlight > .highlight::after {
+                content: $language;
+                position: absolute;
+                top: $base-pre-padding;
+                right: $base-pre-padding;
+            }
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #02020b;
+    }
+
+    .header {
+        background: #181E25;
+
+        .header-nav {
+            color: #ee5a16;
+        }
+
+        @supports (background-clip: text) or (-ms-background-clip: text) or (-webkit-background-clip: text) {
+            @media (min-width: $breakpoint-medium) {
+                .header-nav {
+                    background: #df8e15 linear-gradient(to right, #df8e15, #df8e15 calc(50% - #{$half-container-small-width} + 1.5em), #ee5a16 calc(50% + #{$half-container-small-width}), #ee5a16);
+                    background-clip: text;
+                    -ms-background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+        }
+    }
+
+    .uk-logo {
+        .logo-image path {
+            fill: url(#logo-gradient) !important;
+        }
+
+        &:hover .logo-image path {
+            fill: url(#logo-gradient-hover) !important;
+        }
+    }
 }

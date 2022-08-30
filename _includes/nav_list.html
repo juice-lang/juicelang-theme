@@ -1,0 +1,20 @@
+{% for item in include.menu %}
+    {% assign itemPage = site.pages | find: "path", item.path %}
+    {% if item.children %}
+        {% assign active = itemPage | is_active?: item.children %}
+        <li class="uk-parent{% if active %} uk-active uk-open{% endif %} uk-grid-collapse" uk-grid>
+            <a href="{{ itemPage.url | absolute_url }}">{{ itemPage.title }}</a>
+            {% if include.accordion %}
+                <a href="#" class="nav-parent-toggle uk-width-expand"{% if active %} aria-expanded="true"{% endif %}><span uk-nav-parent-icon></span></a>
+            {% endif %}
+            <ul class="uk-nav-sub uk-width-1-1">
+                {% include nav_list.html menu=item.children %}
+            </ul>
+        </li>
+    {% else %}
+        {% assign active = itemPage | is_active? %}
+        <li{% if active %} class="uk-active"{% endif %}>
+            <a href="{{ itemPage.url | absolute_url }}">{{ itemPage.title }}</a>
+        </li>
+    {% endif %}
+{% endfor %}

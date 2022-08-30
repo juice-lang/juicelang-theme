@@ -20,52 +20,45 @@
         <meta name="application-name" content="juicelang">
         <meta name="msapplication-TileColor" content="#df8e15">
         <meta name="msapplication-config" content="{{ '/assets/images/icons/browserconfig.xml' | relative_url }}">
-        <meta name="theme-color" content="#df8e15">
+        <meta name="theme-color" content="#df8e15" media="(prefers-color-scheme: light)">
+        <meta name="theme-color" content="#02020b" media="(prefers-color-scheme: dark)">
 
         <link href="{{ '/assets/css/default.css' | relative_url }}" rel="stylesheet">
     </head>
     <body>
-        <div class="uk-container uk-container-expand header">
-            <nav class="uk-navbar-container uk-container uk-container-small uk-navbar-transparent uk-light
-                        uk-flex-column uk-flex-row@m header-nav" uk-navbar>
-                <div class="uk-navbar-left">
-                    <a class="uk-navbar-item uk-logo uk-text-italic uk-padding-small uk-padding-remove-left
-                              uk-visible@m logo" href="{{ site.url }}">
-                        <div class="uk-flex">
-                            <div class="logo-image">
-                                {% include logo.html %}
-                            </div>
-                            <div class="logo-text">
-                                <div class="uk-text-italic logo-name">juice</div>
-                            </div>
-                        </div>
-                    </a>
-                    <a class="uk-navbar-item uk-logo uk-padding-small uk-padding-remove-left uk-hidden@m mobile-logo"
-                       href="{{ site.url }}">
-                        <div class="uk-flex">
-                            <div class="logo-image">
-                                {% include logo.html %}
-                            </div>
-                            <div class="uk-flex uk-flex-column mobile-logo-text">
-                                <div class="uk-text-italic mobile-logo-name">juice</div>
-                                <div class="mobile-logo-subtitle">
-                                    The <span class="uk-text-italic uk-text-bold">juicy</span> programming language
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+        <nav class="uk-navbar-container uk-container uk-container-expand uk-navbar-transparent uk-light header" uk-navbar>
+            {% if page.nav %}
+                <div class="uk-navbar-left uk-margin-right uk-visible@m" id="offcanvas-toggle">
+                    <a href="#offcanvas" class="uk-navbar-toggle uk-navbar-toggle-animate" uk-toggle uk-navbar-toggle-icon></a>
+                    {% include nav.html id="offcanvas" navigation=page.nav %}
                 </div>
-                <div class="uk-navbar-right uk-visible@m">
-                    <div class="uk-navbar-item">
-                        <div class="uk-text-large">
-                            The <span class="uk-text-italic uk-text-bold">juicy</span> programming language
+            {% endif %}
+            <div class="uk-navbar-center header-center">
+                <div class="uk-navbar-container uk-container uk-container-small uk-navbar-transparent header-nav" uk-navbar>
+                    <div class="uk-navbar-left">
+                        <a class="uk-navbar-item uk-logo uk-text-italic uk-padding-small uk-padding-remove-left
+                                logo" href="{{ site.url }}">
+                            <div class="logo-image">
+                                {% include logo.html %}
+                            </div>
+                        </a>
+                    </div>
+                    <div class="uk-navbar-right">
+                        <div class="uk-navbar-item uk-visible@m">
+                            <div class="uk-text-large">
+                                The <span class="uk-text-italic uk-text-bold">juicy</span> programming language
+                            </div>
                         </div>
+                        {% if page.nav %}
+                            <a href="#mobile-offcanvas" class="uk-navbar-toggle uk-navbar-toggle-animate uk-hidden@m" uk-toggle uk-navbar-toggle-icon></a>
+                            {% include nav.html id="mobile-offcanvas" flip=true navigation=page.nav %}
+                        {% endif %}
                     </div>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
         {{ content }}
-        <div class="uk-container uk-container-small uk-margin-small-top footer">
+        <div class="uk-container uk-container-small footer">
             <nav class="uk-navbar-container uk-container uk-container-small uk-navbar-transparent" uk-navbar>
                 <div class="uk-navbar-left">
                     <div class="uk-navbar-item uk-padding-remove">&copy; {{ 'now' | date: "%Y" }}&nbsp;</div>
