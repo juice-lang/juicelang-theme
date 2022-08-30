@@ -1,3 +1,8 @@
+# frozen_string_literal: true
+
+require 'jekyll'
+require 'rouge'
+
 Jekyll::Hooks.register :site, :pre_render do |site|
     require "rouge"
 

@@ -1,3 +1,8 @@
+# frozen_string_literal: true
+
+require 'jekyll'
+require 'liquid'
+
 module Jekyll
     module CustomFilters
         def is_active?(pageHash, children = nil)

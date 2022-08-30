@@ -1,3 +1,8 @@
+# frozen_string_literal: true
+
+require 'jekyll'
+require 'rouge'
+
 Jekyll::Hooks.register :site, :pre_render do |site|
     require "rouge"
 
@@ -73,7 +78,7 @@ Jekyll::Hooks.register :site, :pre_render do |site|
                 token Punctuation
                 push :optional_rhs; push :expecting_symbol
             end
-            
+
             rule %r/\{/ do
                 token Punctuation
                 push :repeating_rhs; push :expecting_symbol

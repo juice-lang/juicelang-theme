@@ -1,3 +1,8 @@
+# frozen_string_literal: true
+
+require 'jekyll'
+require 'kramdown'
+
 class Kramdown::Converter::CustomHtml < Kramdown::Converter::Html
     def convert_em(el, indent)
         "<span#{html_attributes(add_class(el.attr, "uk-text-italic"))}>#{inner(el, indent)}</span>"
@@ -15,19 +20,19 @@ class Kramdown::Converter::CustomHtml < Kramdown::Converter::Html
     def convert_thead(el, indent)
         format_as_indented_block_html(el.type, el.attr, inner(el, indent), indent)
     end
-    
+
     def convert_tbody(el, indent)
         format_as_indented_block_html(el.type, el.attr, inner(el, indent), indent)
     end
-    
+
     def convert_tfoot(el, indent)
         format_as_indented_block_html(el.type, el.attr, inner(el, indent), indent)
     end
-    
+
     def convert_tr(el, indent)
         format_as_indented_block_html(el.type, el.attr, inner(el, indent), indent)
     end
-    
+
 
     def add_class(attr, class_name)
         if attr.has_key?("class")
@@ -38,7 +43,7 @@ class Kramdown::Converter::CustomHtml < Kramdown::Converter::Html
         attr
     end
 end
-  
+
 class Jekyll::Converters::Markdown::CustomMarkdown < Jekyll::Converters::Markdown
     def initialize(config)
         require 'kramdown'
@@ -48,7 +53,7 @@ class Jekyll::Converters::Markdown::CustomMarkdown < Jekyll::Converters::Markdow
         STDERR.puts '  $ [sudo] gem install kramdown'
         raise FatalException.new("Missing dependency: kramdown")
     end
-  
+
     def convert(content)
         Kramdown::Document.new(content, {
             input: "GFM",
