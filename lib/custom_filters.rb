@@ -13,12 +13,21 @@ module Jekyll
         end
 
         def find(input, property, targetValue = nil)
-            standardFilters = Class.new.extend(Liquid::StandardFilters)
-            standardFilters.first(standardFilters.where(input, property, targetValue))
+            first(where(input, property, targetValue))
+        end
+
+        def url_without_ext(pageHash)
+            page = pageFromHash(pageHash)
+            url = absolute_url(page.url)
+
+            return url.sub /\.x?html?$/, ''
         end
 
 
         private
+
+        include Liquid::StandardFilters
+        include Jekyll::Filters::URLFilters
 
         def currentPage
             pageFromHash(@context.registers[:page])

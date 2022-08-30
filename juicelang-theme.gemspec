@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "juicelang-theme"
-  spec.version       = "0.3.4"
+  spec.version       = "0.4.0"
   spec.authors       = ["Josef Zoller"]
   spec.email         = ["josef@walterzollerpiano.com"]
 

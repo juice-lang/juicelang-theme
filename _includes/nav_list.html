@@ -3,7 +3,7 @@
     {% if item.children %}
         {% assign active = itemPage | is_active?: item.children %}
         <li class="uk-parent{% if active %} uk-active uk-open{% endif %} uk-grid-collapse" uk-grid>
-            <a href="{{ itemPage.url | absolute_url }}">{{ itemPage.title }}</a>
+            <a href="{{ itemPage | url_without_ext }}">{{ itemPage.title }}</a>
             {% if include.accordion %}
                 <a href="#" class="nav-parent-toggle uk-width-expand"{% if active %} aria-expanded="true"{% endif %}><span uk-nav-parent-icon></span></a>
             {% endif %}
@@ -14,7 +14,7 @@
     {% else %}
         {% assign active = itemPage | is_active? %}
         <li{% if active %} class="uk-active"{% endif %}>
-            <a href="{{ itemPage.url | absolute_url }}">{{ itemPage.title }}</a>
+            <a href="{{ itemPage | url_without_ext }}">{{ itemPage.title }}</a>
         </li>
     {% endif %}
 {% endfor %}

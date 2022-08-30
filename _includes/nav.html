@@ -3,7 +3,7 @@
         <ul class="uk-nav-default" uk-nav='{"toggle": "> a.nav-parent-toggle"}''>
             {% assign navigation = site.data.navigation[include.navigation] %}
             {% assign indexPage = site.pages | find: "path", navigation.index_path %}
-            <li class="uk-nav-header"><a href="{{ indexPage.url | absolute_url }}">{{ navigation.title }}</a></li>
+            <li class="uk-nav-header"><a href="{{ indexPage | url_without_ext }}">{{ navigation.title }}</a></li>
             {% include nav_list.html menu=navigation.menu accordion=true %}
         </ul>
     </div>
