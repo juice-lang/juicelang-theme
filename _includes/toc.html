@@ -1,7 +1,9 @@
-<div class="sidebar-right uk-visible@l">
-    <div uk-sticky="offset: 175">
-        <ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true; offset: 175">
-            {% toc %}
-        </ul>
+{% unless page.no_toc %}
+    <div class="sidebar-right uk-visible@l">
+        <div uk-sticky="offset: 175">
+            <ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true; offset: 175">
+                {% toc %}
+            </ul>
+        </div>
     </div>
-</div>
+{% endunless %}

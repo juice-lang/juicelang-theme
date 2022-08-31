@@ -8,28 +8,34 @@ This is the theme of the website of the *juice* programming language ([juicelang
 Add this line to your Jekyll site's `Gemfile`:
 
 ```ruby
-gem "juicelang-theme"
+gem "juicelang-theme", "~> 0.4", group: :jekyll_plugins
 ```
 
-And add this line to your Jekyll site's `_config.yml`:
+And add the following lines to your Jekyll site's `_config.yml`:
 
 ```yaml
 theme: juicelang-theme
+plugins:
+  - juicelang-theme
 ```
 
-And then execute:
+Then execute:
 
-    $ bundle
+```bash
+$ bundle install
+```
 
-Or install it yourself as:
+Or install the gem yourself using:
 
-    $ gem install juicelang-theme
+```bash
+$ gem install juicelang-theme
+```
 
 ## Development
 
 To set up your environment to develop this theme, run `bundle install`.
 
- To test this theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test this theme's contents. As you make modifications to this theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
+To test this theme, run `bundle exec jekyll serve --watch` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test this theme's contents. As you make modifications to this theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
 
 ## License
 
