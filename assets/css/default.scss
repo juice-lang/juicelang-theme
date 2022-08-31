@@ -14,6 +14,8 @@ $base-heading-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI
 $navbar-nav-item-font-family: $base-heading-font-family;
 $logo-font-family: $base-heading-font-family;
 
+$global-secondary-background: #181e25;
+
 $inverse-logo-hover-color: rgba(white, .85);
 $logo-font-size: 4rem;
 $navbar-gap: 0;
@@ -236,6 +238,56 @@ $languages: "ebnf", "juice";
         margin-top: $margin-large-margin;
     }
 
+    .sidebar-right {
+        position: absolute;
+        left: unquote('calc(50% + #{$half-container-small-width} + 25px)');
+        right: 10px;
+        top: 0;
+        max-width: 250px;
+
+        ul.uk-nav {
+            & > li {
+                & > a {
+                    position: relative;
+
+                    &::before, &::after {
+                        content: "";
+                        position: absolute;
+                        top: 100%;
+                        bottom: 0;
+                        left: -5px;
+                        transition: all .2s ease-in-out;
+                    }
+
+                    &::before {
+                        width: 0;
+                        border-left: 1px solid #df8e15;
+                    }
+
+                    &::after {
+                        right: 0;
+                        background: linear-gradient(to right, rgba(#df8e15, .3), transparent);
+                    }
+                }
+
+                &.uk-active {
+                    & > a {
+                        &::before, &::after {
+                            top: 0;
+                        }
+                    }
+
+                    & ~ li:not(.uk-active) > a {
+                        &::before, &::after {
+                            top: 0;
+                            bottom: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .highlighter-rouge {
         position: relative;
 
@@ -256,7 +308,7 @@ $languages: "ebnf", "juice";
     }
 
     .header {
-        background: #181E25;
+        background: #181e25;
 
         .header-nav {
             color: #ee5a16;

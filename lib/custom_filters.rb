@@ -29,7 +29,7 @@ module Jekyll
 
             flattenedMenu = flattenMenu(nav['menu'])
 
-            for i in 0..flattenedMenu.count
+            for i in 0...flattenedMenu.count
                 pageI = flattenedMenu[i]
 
                 if page.equal? pageI
