@@ -24,6 +24,9 @@
         <meta name="theme-color" content="#02020b" media="(prefers-color-scheme: dark)">
 
         <link href="{{ '/assets/css/default.css' | absolute_url }}" rel="stylesheet">
+        {% if page.additional_css %}
+            <link href="{{ page.additional_css | absolute_url }}" rel="stylesheet">
+        {% endif %}
     </head>
     <body>
         <nav class="uk-navbar-container uk-container uk-container-expand uk-navbar-transparent uk-light header" uk-navbar>
