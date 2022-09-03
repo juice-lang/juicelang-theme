@@ -25,6 +25,29 @@ $navbar-gap: 0;
 @import "uikit/mixins-theme";
 
 // 3. Your custom mixin overwrites.
+@mixin hook-container-misc() {
+    .uk-container.uk-padding-remove > .uk-container {
+        padding-left: $container-padding-horizontal;
+        padding-right: $container-padding-horizontal;
+    }
+
+    /* Phone landscape and bigger */
+    @media (min-width: $breakpoint-small) {
+        .uk-container.uk-padding-remove > .uk-container {
+            padding-left: $container-padding-horizontal-s;
+            padding-right: $container-padding-horizontal-s;
+        }
+    }
+
+    /* Tablet landscape and bigger */
+    @media (min-width: $breakpoint-medium) {
+        .uk-container.uk-padding-remove > .uk-container {
+            padding-left: $container-padding-horizontal-m;
+            padding-right: $container-padding-horizontal-m;
+        }
+    }
+}
+
 @mixin hook-flex-misc() {
     /* Phone landscape and bigger */
     @media (min-width: $breakpoint-small) {
