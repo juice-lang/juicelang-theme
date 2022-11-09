@@ -1,6 +1,6 @@
 <div id="{{ include.id }}" uk-offcanvas="mode: push{% if include.flip %}; flip: true{% endif %}">
     <div class="uk-offcanvas-bar">
-        <ul class="uk-nav-default" uk-nav='{"toggle": "> a.nav-parent-toggle"}''>
+        <ul class="uk-nav-default" uk-nav='{"toggle": "> a.nav-parent-toggle"}'>
             {% assign navigation = site.data.navigation[include.navigation] %}
             {% assign indexPage = site.pages | find: "path", navigation.index_path %}
             <li class="uk-nav-header"><a href="{{ indexPage | url_without_ext }}">{{ navigation.title }}</a></li>
