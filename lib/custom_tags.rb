@@ -4,8 +4,6 @@ require 'jekyll'
 require 'kramdown'
 require 'liquid'
 
-require_relative 'markdown_toc'
-
 
 class ToCTag < Liquid::Tag
     def initialize(tag_name, input, tokens)
@@ -15,21 +13,27 @@ class ToCTag < Liquid::Tag
     def render(context)
         toc = Kramdown::Document.new(context.registers[:page]['content'], {
             input: "GFM"
-        }).to_ToC
-        build_list(toc.select { |item| item[0] == 2 }, toc.first)
+        }).to_Toc
+        build_list(toc, context)
     end
 
     private
 
-    def build_list(toc, top)
-        result = '<li class="uk-active"><a href="#' + top[1] + '">' + top[2][0].value + '</a></li>' + "\n"
+    def build_list(toc, context)
+        top = toc.children.first.value
+        result = '<li class="uk-active"><a href="#' + top.attr['id'] + '">' + elementToHTML(top, context) + '</a></li>' + "\n"
 
-        for i in 0...toc.count
-            item = toc[i]
-            result += '<li><a href="#' + item[1] + '">' + item[2][0].value + "</a></li>\n"
+        for item in toc.children.first.children.map { |e| e.value }
+            result += '<li><a href="#' + item.attr['id'] + '">' + elementToHTML(item, context) + "</a></li>\n"
         end
 
         result
+    end
+
+    def elementToHTML(el, context)
+        root = Kramdown::Element.new(:root, nil, nil, encoding: context.registers[:page]['content'].encoding)
+        root.children = el.children
+        Kramdown::Converter::CustomHtml.convert(root).first
     end
 end
 
