@@ -21,10 +21,10 @@ class ToCTag < Liquid::Tag
 
     def build_list(toc, context)
         top = toc.children.first.value
-        result = '<li class="uk-active"><a href="#' + top.attr['id'] + '">' + elementToHTML(top, context) + '</a></li>' + "\n"
+        result = '<li class="uk-active"><a href="#' + top.attr['id'] + '"><div class="uk-text-bold">' + elementToHTML(top, context) + '</div></a></li>' + "\n"
 
         for item in toc.children.first.children.map { |e| e.value }
-            result += '<li><a href="#' + item.attr['id'] + '">' + elementToHTML(item, context) + "</a></li>\n"
+            result += '<li><a href="#' + item.attr['id'] + '"><div>' + elementToHTML(item, context) + "</div></a></li>\n"
         end
 
         result
