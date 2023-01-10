@@ -3,8 +3,12 @@
     <head>
         <meta charset="utf-8">
         <title>juice &ndash; {{ page.title }}</title>
-        <meta name="description" content="{{ page.excerpt }}">
-        <meta name="title" content="{{ page.title }}">
+        <meta name="title" content="juice &ndash; {{ page.title }}">
+        {% if page.excerpt %}
+            <meta name="description" content="The juice programming language: {{ page.excerpt }}">
+        {% else %}
+            <meta name="description" content="The juice programming language.">
+        {% endif %}
         <meta name="author" content="Josef Zoller">
         <meta name="generator" content="jekyll">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -40,7 +44,7 @@
                 <div class="uk-navbar-container uk-container uk-container-small uk-navbar-transparent header-nav" uk-navbar>
                     <div class="uk-navbar-left">
                         <a class="uk-navbar-item uk-logo uk-text-italic uk-padding-small uk-padding-remove-left
-                                logo" href="{{ site.url }}">
+                                logo" href="{{ site.url }}" aria-label="Back to Home">
                             <div class="logo-image">
                                 {% include logo.html %}
                             </div>
