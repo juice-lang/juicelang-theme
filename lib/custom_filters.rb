@@ -50,6 +50,15 @@ module Jekyll
         end
 
 
+        def prefix(input, prefix)
+            prefix.to_s + input.to_s if input
+        end
+
+        def suffix(input, suffix)
+            input.to_s + suffix.to_s if input
+        end
+
+
         private
 
         include Liquid::StandardFilters

@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         {% if page.nav %}
-                            <a href="#mobile-offcanvas" class="uk-navbar-toggle uk-navbar-toggle-animate uk-hidden@m" uk-toggle uk-navbar-toggle-icon></a>
+                            <a href="#mobile-offcanvas" class="uk-navbar-toggle uk-navbar-toggle-animate uk-hidden@m" aria-label="Open Navigation" uk-toggle uk-navbar-toggle-icon></a>
                             {% include nav.html id="mobile-offcanvas" flip=true navigation=page.nav %}
                         {% endif %}
                     </div>
@@ -74,7 +74,7 @@
                 <div class="uk-navbar-right">
                     <ul class="uk-navbar-nav">
                         <li>
-                            <a href="https://github.com/juice-lang" class="uk-padding-remove-right">
+                            <a href="https://github.com/juice-lang" class="uk-padding-remove-right" aria-label="GitHub Repository">
                                 <span class="uk-icon" uk-icon="icon: github"></span>
                             </a>
                         </li>
