@@ -59,6 +59,16 @@ module Jekyll
         end
 
 
+        def chunked(input, size)
+            size = Liquid::Utils.to_integer(size)
+            if input.is_a? Array
+                input.each_slice(size).to_a
+            else
+                input.to_s.scan(/.{1,#{size}}/m)
+            end
+        end
+
+
         private
 
         include Liquid::StandardFilters
