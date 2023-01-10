@@ -69,6 +69,11 @@ module Jekyll
         end
 
 
+        def strip_empty_html(input)
+            input.gsub(/<([^\/>][^>]*)><\/\1>/, '')
+        end
+
+
         private
 
         include Liquid::StandardFilters
